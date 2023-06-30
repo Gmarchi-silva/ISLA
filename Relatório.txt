@@ -1,0 +1,33 @@
+EXTRAÇÃO DOS DADOS: repositório partilhado Google Drive (https://drive.google.com/drive/folders/11Xc0DyjL_jvdDjqj8elo1oCgsx6Nj8GY)
+
+ANÁLISE DOS DADOS:
+-Excel/Python/pandas-profiling:
+	Tabela "cities"
+		"city_code": 	corrigir os nomes ("?" - substituir por "i")
+			Sanl?urfa 	- Sanliurfa
+ 			Eski?ehir 	- Eskisehir
+			Adapazar? 	- Adapazarı
+			?zmir 	- izmir
+			Diyarbak?r 	- Diyarbakir
+	Tabela "product"
+		"product_length":	18 valores em falta (se for um produto com reduzida percentagem de vendas podemos pensar em eliminar,
+								caso contrário temos de pensar em como preencher-média de produtos idênticos ou "zero")
+		"product_depth":	16 valores em falta (se for um produto com reduzida percentagem de vendas podemos pensar em eliminar,
+								caso contrário temos de pensar em como preencher-média de produtos idênticos ou "zero")
+		"product_width":	18 valores em falta (se for um produto com reduzida percentagem de vendas podemos pensar em eliminar,
+								caso contrário temos de pensar em como preencher-média de produtos idênticos ou "zero")
+		"cluster_id":	50 valores em falta (temos de perceber o que cada um dos 10 clusters existentes inclui-características-para
+								decidirmos se criamos um novo cluster ou se inserimos num existente)
+	Tabela "sales"
+		"product_id": 	84 produtos não tiveram qualquer registo de venda no período
+		"sales": 		alguns valores em falta e uma percentagem grande de zeros (mas todos estes apresentam "Nan" ou "0" na coluna 					"revenue" por isso penso que devemos eliminar)
+		"revenue":		1072 "zeros" em que existe "sales" e "price" com valores superiores a "zero" (não consigo entender o 							motivo...não vejo nenhum padrão...datas diferentes e espaçadas...stock existe...)		
+		"stock":		penso que indica o stock daquele produto em cada momento, mas não consegui validar se é mesmo assim 							(calcular o stock anterior e deduzir as quantidades vendidas -'sales'- numa nova coluna e ver se coincide ?)
+		"price":		91381 valores em falta
+						1972 não apresentam valores em ‘sales’, ‘revenue’ e ‘stock’ (eliminar?)
+						69035 com ‘sales’=0 e ‘revenue’=0 (eliminar?)
+						69057 com ‘revenue’=0 | 22 com ‘revenue’=0 mas ‘sales’>0 (erro? eliminar?)
+		"promo_***":	todas apresentam uma percentagem de valores em falta elevado (talvez utilizar como variáveis binárias 						apenas: teve promoção/desconto ou não)
+
+
+
