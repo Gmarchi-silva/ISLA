@@ -1,4 +1,4 @@
-EXTRAÇÃO DOS DADOS: repositório partilhado Google Drive (https://drive.google.com/drive/folders/11Xc0DyjL_jvdDjqj8elo1oCgsx6Nj8GY)
+EXTRAÇÃO DOS DADOS: repositório partilhado Google Drive
 
 ANÁLISE DOS DADOS:
 -Excel/Python/pandas-profiling:
