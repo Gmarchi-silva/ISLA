@@ -102,6 +102,7 @@ df_semana_treino.plot()
 # Avaliação do modelo
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import numpy as np
+import statsmodels.api as sm
 
 real_sales = df_semana_treino.loc['2019-07-07':'2019-09-29', 'sales']
 prev_sales = df_semana_treino.loc['2019-07-07':'2019-09-29', 'previsoes_sales']
@@ -124,3 +125,26 @@ rmse_rev = np.sqrt(mean_squared_error(real_rev, prev_rev))
 r2_rev
 mae_rev
 rmse_rev
+
+n = len(real_sales)
+
+k = 13  # Número de parâmetros no modelo
+
+
+sse_sales = ((real_sales - prev_sales) ** 2).sum() # Calcula a soma dos resíduos quadrados (SSE)
+
+aic_sales = n * np.log(sse_sales / n) + 2 * k
+
+bic_sales = n * np.log(sse_sales / n) + k * np.log(n)
+
+print("AIC sales:", aic_sales)
+print("BIC sales:", bic_sales)
+
+sse_revenue = ((real_rev - prev_rev) ** 2).sum() # Calcula a soma dos resíduos quadrados (SSE)
+
+aic_revenue = n * np.log(sse_revenue / n) + 2 * k
+
+bic_revenue = n * np.log(sse_revenue / n) + k * np.log(n)
+
+print("AIC revenue:", aic_revenue)
+print("BIC revenue:", bic_revenue)
