@@ -151,7 +151,7 @@ merged_data['promo_discount_35']= np.where((merged_data['promo_discount_2'] == 3
 merged_data['promo_discount_40']= np.where((merged_data['promo_discount_2'] == 40), 1, 0)
 merged_data['promo_discount_50']= np.where((merged_data['promo_discount_2'] == 50), 1, 0)
 
-#Primeiro fizemos um groupby date pq queremos o total de stock_inicial por dia
+#Primeiro fizemos um groupby date porque queremos o total de stock_inicial por dia
 merged_data= merged_data.groupby(['store_id', 'date','storetype_id','city_code']).agg({
     'sales': 'sum',
     'revenue': 'sum',
@@ -372,7 +372,7 @@ Lojas_anormais_S0136 = Lojas_anormais_S0136.fillna(0)
 plt.plot(Lojas_anormais_S0136['continuous_week_number'], Lojas_anormais_S0136['revenue'])
 plt.title('S0136')
 
-''' Pela análise efetuada a loja terá fechado na semana 114 como habitualmente fez nos períodos homólogos
+''' Pela análise efetuada a loja terá fechado na semana 141 como habitualmente fez nos períodos homólogos
 de 2017 e 2018, pelo que a previsão para outubro de 2019 é que esteja fechada e por isso não haja vendas.
 No entanto vamos introduzir no modelo SARIMA e verificar os resultados/previsões'''
 
