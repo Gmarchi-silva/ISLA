@@ -69,5 +69,37 @@ Existem também 2 lojas (S0007 e S0059) que começaram a vender em semanas difer
 Temos ainda o caso especial da loja S0136 que percebemos que não está aberta todo o ano e, pela análise efetuada a loja terá fechado em setembro como habitualmente fez nos períodos homólogos de 2017 e 2018, pelo que a previsão para outubro de 2019 é que esteja fechada e por isso não haja vendas.
 Depois deste tratamento dos dados agregamos tudo numa variável e “csv” final.
 
+## 4.	Modeling
+Para a criação de modelos iniciamos com a média e média móvel (1trimestre – 13semanas) que testamos para algumas lojas e analisamos os resultados com base no R2, MAE e RMSE, no entanto tendo em conta os resultados e considerando que iremos avançar para um modelo ARIMA que já nos dará indicação de modelos Auto-Regressivos e de Média Móvel, assim como o tempo disponível, resolvemos começar com a criação de modelo ARIMA com a parametrização automática dos parâmetros (auto-arima) e avaliar os resultados.
+De seguida começamos a efetuar modelo ARIMA mas com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com a inclusão da sazonalidade (SARIMA) utilizando o auto-arima e o parâmetro de sazonalidade m=52. De salientar que inicialmente corremos os modelos utilizando as variáveis “sales” e “revenue” de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto, no entanto, pela análise efectuada até ao momento optamos por nos centrarmos na “revenue”.
+Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
+Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
+A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
+Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
+- stock inicial: calculado….
+- Feriados: inseridos ….
+- Estações do ano: classificadas como variáveis dummy, sendo o inverno a variável subentendida e classificadas da seguinte forma…
+- …
+
+
+Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
+- O stock inicial é a variável que impacta em mais lojas , de todos os tipos, tamanhos e cidades, mas com coeficientes reduzidos
+- A Primavera e o Verão são as que causam um efeito de maior amplitude na revenue, e essencialmente na cidade de Istanbul, sendo o efeito negativo o de maior amplitude.
+- Não têm impacto relevante na única loja do tipo ST02
+- O impacto, significativo, restringe-se a 7 cidades mas que são geograficamente dispersas
+- A maioria das lojas onde tem efeito são de tamanho pequeno e médio/baixo, no entanto, o maior impacto negativo é nas lojas de tamanho maior
+
+- As variáveis Probin1_low, Probin1_very_low, Outono, Probin1_moderate são as que causam apenas impacto positivo nas lojas também de vários tipos, tamanhos e cidades, em que foram consideradas significativas
+
+Esta análise permitiu perceber que algumas variáveis não são significativas e por isso retiramos do modelo para testar num cluster específico e avaliar e comparar com os resultados do modelo das lojas individuais…
+
+
+
+## 5.	Conclusion
+
+Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a revenue.A empresa apartir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a revenue.
+O modelo Sarimax para o cluster de 8 lojas permite fazer previsõesmais acertadas em relação aos modelos individuais de cada loja. 
+Num futuro projeto para este tipo de dados seria interessante utilizar um modelo de dados em painel
+
 
 
