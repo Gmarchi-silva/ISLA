@@ -47,5 +47,27 @@ Para apoiar nesta análise recorremos à biblioteca “pandas_profiling” do Py
 - A correlação de ‘sales’ com ‘stock’ é positiva mas pouco significativa
 - O mesmo acontece com ‘sales’ e ‘price’ mas neste caso com correlação negativa
 - A correlação entre ‘stock’ e ‘price’ é negativa mas não muito significativa
-![Logo do GitHub](https://github.com/seu-usuario/seu-repositorio/raw/main/imagens/logo-github.png)
+  
+![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Pandas%20Profiling/Correla%C3%A7%C3%A3o.png)
+
+
+## 3.	Data Preparation
+
+ Para o tratamento e agregação dos dados todos que escolhemos foi utilizado o Python:
  
+- Correção dos nomes  das cidades ("?" - substituir por "i") 
+- Preencher os dados em falta nas colunas “promo_bin_1”, “promo_bin_2” e “promo_discount_type_2” com “NA” e na coluna “promo_discount_2” com “zero”.
+- Agregação dos dados das 3 tabelas e eliminação das variáveis que não vamos utilizar: “city_id_old”, “Unnamed: 0”, “country_id”, “hierarchy1_id”, “hierarchy2_id”, “hierarchy3_id”, “hierarchy4_id”, “hierarchy5_id”, “product_length”, “product_depth”, “product_width”, “cluster_id”
+- Verificação de nulos e eliminação das linhas que tinham nulos de “sales”, “revenue”, “stock”.
+- Criação de uma coluna com o número contínuo de semanas com base na data.
+- Eliminação da semana nº144 (última) por apenas ter dados de 1 dia
+
+### Lojas anormais
+
+Como temos lojas com valores de semana muito abaixo de 143 decidimos fazer uma análise particular e verificamos que algumas lojas destas têm o primeiro registo de vendas na semana 53 e depois têm um período sem vendas (sendo esse período diferente de loja para loja) o que nos leva a crer que o primeiro registo se tratou de um teste e que as semanas seguintes sem registos se deveram à preparação da loja para abertura definitiva e por isso eliminamos a semana 53 dessas lojas e utilizamos os dados apenas das semanas seguintes que tinham registos.
+Existem também 2 lojas (S0007 e S0059) que começaram a vender em semanas diferentes pelo que utilizamos os dados apenas das semanas seguintes que tinham registos.
+Temos ainda o caso especial da loja S0136 que percebemos que não está aberta todo o ano e, pela análise efetuada a loja terá fechado em setembro como habitualmente fez nos períodos homólogos de 2017 e 2018, pelo que a previsão para outubro de 2019 é que esteja fechada e por isso não haja vendas.
+Depois deste tratamento dos dados agregamos tudo numa variável e “csv” final.
+
+
+
