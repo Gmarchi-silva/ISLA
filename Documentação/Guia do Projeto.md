@@ -15,7 +15,7 @@ Primeiro verificamos as variáveis presentes em cada uma das tabelas e o possív
 Para apoiar nesta análise recorremos à biblioteca “pandas_profiling” do Python (relatórios de cada tabela no repositório) e percebemos o seguinte:
   
   ### Tabela cities
-  - A  [Tabela Cities](https://exemplo.com/)  contém 6 variáveis (1 numérica e 6 categóricas) e 63 observações, sem valores em falta:
+  - A [Tabela Cities](hhttps://github.com/Gmarchi-silva/ISLA/blob/main/Pandas%20Profiling/1_p_profiling_cities.html)  contém 6 variáveis (1 numérica e 6 categóricas) e 63 observações, sem valores em falta:
   - Existem 63 lojas classificadas em 4 tipos e com 32 tamanhos entre elas sendo que nos tipos das lojas conseguimos perceber que são pequenas, médias e grandes, havendo uma especial pois é a única presente no tipo ST02.
   - As lojas são na Turquia e dispersas por 19 cidades diferentes, no entanto, 32 delas estão na cidade de Istanbul.
 
