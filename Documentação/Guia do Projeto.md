@@ -64,14 +64,19 @@ Para apoiar nesta análise recorremos à biblioteca “pandas_profiling” do Py
 
 ### Lojas anormais
 
-Como temos lojas com valores de semana muito abaixo de 143 decidimos fazer uma análise particular e verificamos que algumas lojas destas têm o primeiro registo de vendas na semana 53 e depois têm um período sem vendas (sendo esse período diferente de loja para loja) o que nos leva a crer que o primeiro registo se tratou de um teste e que as semanas seguintes sem registos se deveram à preparação da loja para abertura definitiva e por isso eliminamos a semana 53 dessas lojas e utilizamos os dados apenas das semanas seguintes que tinham registos.
-Existem também 2 lojas (S0007 e S0059) que começaram a vender em semanas diferentes pelo que utilizamos os dados apenas das semanas seguintes que tinham registos.
+Como temos lojas com valores de semana muito abaixo de 143 decidimos fazer uma análise particular.
 
 ![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas%20anormais%20totais.png)
 
+Verificamos que algumas lojas destas têm o primeiro registo de vendas na semana 53 e depois têm um período sem vendas (sendo esse período diferente de loja para loja) o que nos leva a crer que o primeiro registo se tratou de um teste e que as semanas seguintes sem registos se deveram à preparação da loja para abertura definitiva e por isso eliminamos a semana 53 dessas lojas e utilizamos os dados apenas das semanas seguintes que tinham registos.
+Existem também 2 lojas (S0007 e S0059) que começaram a vender em semanas diferentes pelo que utilizamos os dados apenas das semanas seguintes que tinham registos.
+
+![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas%20anormais.png)
+
+
 Temos ainda o caso especial da loja S0136 que percebemos que não está aberta todo o ano e, pela análise efetuada a loja terá fechado em setembro como habitualmente fez nos períodos homólogos de 2017 e 2018, pelo que a previsão para outubro de 2019 é que esteja fechada e por isso não haja vendas.
 
-![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas anormais totais.png)
+![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas%20anormais.png)
 
 Depois deste tratamento dos dados agregamos tudo num data set e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
 
