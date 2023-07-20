@@ -83,23 +83,23 @@ Temos ainda o caso especial da loja S0136 que percebemos que não está aberta t
 
 ### Criação das variaveis exógenas
 
-Foram criadas várias variaveis exógenas para treino no modelo em sarimax, as variaveis são:
-- Stock_inicial calcula pela soma do sales com o stock diário. Por semana utilizou-se o máximo diário
-- Promo bin 1 (very low, low, moderate, high, very high) neste caso somou-se o número de produtos que teve esta promoções por dia e por fim semanalmente.
-- Promo bin 2 (very low, high, very high) neste caso somou-se o número de produtos que teve esta promoções por dia e por fim semanalmente.
-- promo_discount (16, 20, 35, 40, 50) neste caso somou-se o número de produtos que teve esta promoções por dia e por fim semanalmente.
-- Outono, verão e Primavera para estas variaveis foram criadas coluna dummy para cada, em que era colocado o número um caso a semana estivesse naquela estação do ano e 0 se não estivesse.
-- Feriados neste caso foi criada uma só coluna em que 1 representava uma semana com feriado e 0 se não tivesse. Nota: Se o feriado ficasse no ínicio da semana colocava 1 também na semana anterior e se ficasse no final da semnana colocava 1 na semana seguinte.
+Foram criadas várias variáveis exógenas para treino no modelo em sarimax, as variáveis foram:
+- Stock_inicial: calculada pela soma do 'sales' com o 'stock' diário. Para cada semana utilizou-se o dia com o máximo diário superior.
+- Promo bin 1 (very low, low, moderate, high, very high): neste caso somou-se o número de produtos que tiveram estas promoções por dia e por fim semanalmente.
+- Promo bin 2 (very low, high, very high): neste caso somou-se o número de produtos que tiveram estas promoções por dia e por fim semanalmente.
+- promo_discount (16, 20, 35, 40, 50): neste caso somou-se o número de produtos que tiveram estas promoções por dia e por fim semanalmente.
+- Outono, Verão e Primavera: para estas variáveis foram criadas colunas 'dummy' para cada, em que foi colocado o número '1' caso a semana estivesse naquela estação do ano e '0' se não estivesse.
+- Feriados: neste caso foi criada uma só coluna em que '1' representava uma semana com feriado e '0' se não tivesse. Nota: Se o feriado ficasse no início da semana colocava '1' também na semana anterior e se ficasse no final da semana colocava '1' na semana seguinte.
 
-Depois deste tratamento dos dados agregamos tudo num data set e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
+Depois deste tratamento dos dados agregamos tudo num dataset e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
 
 ## 4.	Modeling
 
-###Média e Média móvel
-Para a criação de modelos iniciamos com a [média](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia_v2.py) e [média móvel](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia%20m%C3%B3vel%201trim%20(13%20semanas).py) (1trimestre – 13semanas) que testamos para algumas lojas e analisamos os resultados com base no R2, MAE e RMSE, no entanto tendo em conta os resultados e considerando que iremos avançar para um modelo ARIMA que já nos dará indicação de modelos Auto-Regressivos e de Média Móvel, assim como o tempo disponível, resolvemos começar com a criação de modelo ARIMA com a parametrização automática dos parâmetros (auto-arima) e avaliar os resultados.
+### Média e Média móvel
+Para a criação de modelos, iniciamos com a [média](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia_v2.py) e [média móvel](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia%20m%C3%B3vel%201trim%20(13%20semanas).py) (1 trimestre –> 13 semanas) que testamos para algumas lojas e analisamos os resultados com base no R2, MAE e RMSE, no entanto, tendo em conta os resultados, e considerando que iremos avançar para um modelo ARIMA, que já nos dará indicação de modelos Auto-Regressivos e de Média Móvel, assim como o tempo disponível, resolvemos começar com a criação de modelo ARIMA com a configuração automática dos parâmetros (auto-arima) e avaliar os resultados.
 
 ### Arima Manual
-De seguida começamos a efetuar modelo [ARIMA Manual](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20arima%20manual.R) com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com ARIMA utilizando o auto-arima para definição dos parâmetros automáticamente. 
+De seguida começamos a efetuar o modelo [ARIMA Manual](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20arima%20manual.R) com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com ARIMA utilizando o auto-arima para definição dos parâmetros automaticamente. 
 
 ### Arima ([sales](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20sales/Arima_sales.py) e [revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20revenues/Arima_revenues.py))
 Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20sales) e [“revenue”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20revenues) de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto. 
@@ -108,58 +108,53 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 
 -Os resultados do arima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20revenues/resultados_arima_revenue.csv).
 
-Nos restantes modelo optamos por nos centrarmos na “revenue”.
+Nos restantes modelos optamos por nos centrarmos na “revenue”.
 
 
 ### Sarima ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/Sarima_revenues.py))
- Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente. Neste caso de referir que fizemos um ciclo em que as lojas com menos de 79 semanas em vez de um sarima faziam um arima. Foi necessário fazer isto pois com a sazonalidade de 52 semanas o código dava erro para valores baixos. As lojas que ficaram de fora do sarima foram S0076, S0071, S0092, S0109 e S0007.
- -Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
+Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente. Neste caso de referir que fizemos um ciclo em que as lojas com menos de 79 semanas em vez de um sarima faziam um arima. Foi necessário fazer isto pois com a sazonalidade de 52 semanas o código dava erro para valores baixos. As lojas que ficaram de fora do sarima foram S0076, S0071, S0092, S0109 e S0007.
+Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
  
-
- ### Sarimax ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/Sarimax.py))
+### Sarimax ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/Sarimax.py))
  
- Corremos o modelo Sarimax da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20revenue) com as seguintes variáveis exógenas:
+Corremos o modelo Sarimax da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20revenue) com as seguintes variáveis exógenas:
 
 - Stock_inicial 
 - Promo bin 1 (very low, low, moderate, high, very high)
 - Promo bin 2 (very low, high, very high)
 - promo_discount (16, 20, 35, 40, 50)
-- Outono, verão e Primavera
+- Outono, Verão e Primavera
 - Feriados
 
 Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo. 
-A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
+A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da 'revenue', sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas.
 
-Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que considerámos significativas as variaveis que tivessem um p-value<0,10. Olhando para a tabela abaixo e analisando os dados obtidos percebemos que:
+Os mesmos dados permitiram-nos avaliar as variáveis exógenas, sendo que consideramos significativas as variáveis que tivessem um p-value < 0,10. Olhando para a tabela abaixo e analisando os dados obtidos percebemos que:
 
-- O stock inicial é a variável que impacta em mais lojas , de todos os tipos, tamanhos e cidades, mas com coeficientes reduzidos
-- A Primavera e o Verão são as que causam um efeito de maior amplitude na revenue, e essencialmente na cidade de Istanbul, sendo o efeito negativo o de maior amplitude.
-- Não têm impacto relevante na única loja do tipo ST02
-- O impacto, significativo, restringe-se a 7 cidades mas que são geograficamente dispersas
-- A maioria das lojas onde tem efeito são de tamanho pequeno e médio/baixo, no entanto, o maior impacto negativo é nas lojas de tamanho maior
-
-- As variáveis Probin1_low, Probin1_very_low, Outono, Probin1_moderate são as que causam apenas impacto positivo nas lojas também de vários tipos, tamanhos e cidades, em que foram consideradas significativas
-
+- O stock inicial é a variável que impacta em mais lojas, de todos os tipos, tamanhos e cidades, mas com coeficientes reduzidos.
+- A Primavera e o Verão são as que causam um efeito de maior amplitude na 'revenue', e essencialmente na cidade de Istanbul, sendo o efeito negativo o de maior amplitude.
+- Não têm impacto relevante na única loja do tipo ST02.
+- O impacto, significativo, restringe-se a 7 cidades mas que são geograficamente dispersas.
+- A maioria das lojas onde tem efeito são de tamanho pequeno e médio/baixo, no entanto, o maior impacto negativo é nas lojas de tamanho maior.
+- As variáveis Probin1_low, Probin1_very_low, Outono, Probin1_moderate são as que causam apenas impacto positivo nas lojas também de vários tipos, tamanhos e cidades, em que foram consideradas significativas.
 
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
-
-
 
 ### Sarimax Cluster ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20cluster/Sarimax_cluster.py)) e lojas individuais ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax_lojas_STO3_03_indv/Sarimax_ST03_03.py))
 
 Depois de analisarmos os dados do Sarimax percebemos que o cluster que queríamos utilizar era o ST03_03 que é composto por 8 lojas ()
-A análise do Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo. Testámos o sarimax num [cluster](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20cluster) específico e comparamos com os resultados do [modelo das lojas individuais](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax_lojas_STO3_03_indv). Corremos o cluster e as lojas individualmente com as seguintes variáveis exógenas:
-
+A análise do Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo. Testámos o sarimax num [cluster](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20cluster) específico e comparamos com os resultados do [modelo das lojas individuais](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax_lojas_STO3_03_indv).
+Corremos o cluster e as lojas individualmente, com as seguintes variáveis exógenas:
 - Stock_inicial 
 - Promo bin 1 (very low, low, moderate, high, very high)
-- Outono, verão e Primavera
+- Outono, Verão e Primavera
 - Feriados
 
-Os resultados abaixo encontra-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/resultados_reais.xlsx). Através destes gráficos podemos ver que a previsão do modelo do cluster e das lojas são muito parecidas. 
+Os resultados abaixo encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/resultados_reais.xlsx). Através destes gráficos podemos ver que a previsão do modelo do cluster e das lojas são muito parecidas. 
 
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3d17a97e-d0e8-4d63-a36f-57f9b7cf55d4)
 
-Nos gráficos abaixo é possivel que ver que o MAE, MSE e o RMSE do cluster e das lojas individuais andam próximos, no entanto parece-nos que o cluster tem um erro relativamente menor em comparação com as lojas individuais. No caso do MAPE varia de loja para loja sendo o modelo do cluster mais preciso numas lojas e os modelos individuais mais precisos noutras.
+Nos gráficos abaixo é possível ver que o MAE, MSE e o RMSE do cluster e das lojas individuais andam próximos, no entanto parece-nos que o cluster tem um erro relativamente menor em comparação com as lojas individuais. No caso do MAPE varia de loja para loja sendo o modelo do cluster mais preciso numas lojas e os modelos individuais mais precisos noutras.
 
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/88128b1c-2041-4ba4-bb10-7802efe9efa5)
 
@@ -174,9 +169,6 @@ Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os m
 
 ## 5.	Conclusion
 
-Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a revenue. A empresa a partir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a revenue.
+Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a 'revenue'. A empresa a partir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a 'revenue'.
 O modelo Sarimax para o cluster de 8 lojas permite fazer previsões mais acertadas em relação aos modelos individuais de cada loja. 
-Num futuro projeto para este tipo de dados seria interessante utilizar um modelo de dados em painel
-
-
-
+Num futuro projeto para este tipo de dados seria interessante utilizar um modelo de dados em painel.
