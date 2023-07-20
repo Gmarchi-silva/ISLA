@@ -113,7 +113,7 @@ Nos restantes modelos optamos por nos centrarmos na “revenue”.
 
 ### Sarima ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/Sarima_revenues.py))
 Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente. Neste caso de referir que fizemos um ciclo em que as lojas com menos de 79 semanas em vez de um sarima faziam um arima. Foi necessário fazer isto pois com a sazonalidade de 52 semanas o código dava erro para valores baixos. As lojas que ficaram de fora do sarima foram S0076, S0071, S0092, S0109 e S0007.
-Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
+Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv).
  
 ### Sarimax ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/Sarimax.py))
  
@@ -170,5 +170,7 @@ Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os m
 ## 5.	Conclusion
 
 Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a 'revenue'. A empresa a partir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a 'revenue'.
+
 O modelo Sarimax para o cluster de 8 lojas permite fazer previsões mais acertadas em relação aos modelos individuais de cada loja. 
+
 Num futuro projeto para este tipo de dados seria interessante utilizar um modelo de dados em painel.
