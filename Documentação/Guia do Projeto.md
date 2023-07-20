@@ -111,12 +111,12 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 , no entanto, pela análise efectuada  optamos por nos centrarmos na “revenue”.
 
 
-### Sarima
+### Sarima (revenue)
  Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente.
  -Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
  
 
- ### Sarimax
+ ### Sarimax (revenue)
  
  Corremos o modelo Sarimax da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20revenue) com as seguintes variáveis exógenas:
 
@@ -145,7 +145,7 @@ Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que conside
 
 
 
-### Sarimax Cluster e lojas individuais
+### Sarimax Cluster (revenue) e lojas individuais (revenue)
 
 Depois de analisarmos os dados do Sarimax percebemos que o cluster que queríamos utilizar era o ST03_03 que é composto por 8 lojas ()
 A análise do Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo. Testámos o sarimax num [cluster](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20cluster) específico e comparamos com os resultados do [modelo das lojas individuais](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax_lojas_STO3_03_indv). Corremos o cluster e as lojas individualmente com as seguintes variáveis exógenas:
