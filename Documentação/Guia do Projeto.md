@@ -116,7 +116,7 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
  -Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
  
 
- ### Sarimax (revenue)
+ ### Sarimax ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/Sarimax.py))
  
  Corremos o modelo Sarimax da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20revenue) com as seguintes variáveis exógenas:
 
