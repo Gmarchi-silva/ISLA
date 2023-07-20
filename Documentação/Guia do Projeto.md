@@ -126,6 +126,8 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 - Outono, verão e Primavera
 - Feriados
 
+![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
+
 Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
 Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
 A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
