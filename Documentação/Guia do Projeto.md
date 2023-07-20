@@ -93,16 +93,19 @@ Foram criadas várias variaveis exógenas para treino no modelo em sarimax, as v
 Depois deste tratamento dos dados agregamos tudo num data set e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
 
 ## 4.	Modeling
+
+###Média e Média móvel
 Para a criação de modelos iniciamos com a [média](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia_v2.py) e [média móvel](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20m%C3%A9dia%20m%C3%B3vel%201trim%20(13%20semanas).py) (1trimestre – 13semanas) que testamos para algumas lojas e analisamos os resultados com base no R2, MAE e RMSE, no entanto tendo em conta os resultados e considerando que iremos avançar para um modelo ARIMA que já nos dará indicação de modelos Auto-Regressivos e de Média Móvel, assim como o tempo disponível, resolvemos começar com a criação de modelo ARIMA com a parametrização automática dos parâmetros (auto-arima) e avaliar os resultados.
-De seguida começamos a efetuar modelo ARIMA mas com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com a inclusão da sazonalidade (SARIMA) utilizando o auto-arima e o parâmetro de sazonalidade m=52. De salientar que inicialmente corremos os modelos utilizando as variáveis “sales” e “revenue” de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto, no entanto, pela análise efectuada até ao momento optamos por nos centrarmos na “revenue”.
+
+### Arima Manual
+De seguida começamos a efetuar modelo ARIMA mas com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com ARIMA utilizando o auto-arima para definição dos parâmetros automáticamente. 
+
+De salientar que inicialmente corremos os modelos utilizando as variáveis “sales” e “revenue” de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto, no entanto, pela análise efectuada até ao momento optamos por nos centrarmos na “revenue”.
 Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
 Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
 A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
 Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
-- stock inicial: calculado….
-- Feriados: inseridos ….
-- Estações do ano: classificadas como variáveis dummy, sendo o inverno a variável subentendida e classificadas da seguinte forma…
-- …
+
 
 
 Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
