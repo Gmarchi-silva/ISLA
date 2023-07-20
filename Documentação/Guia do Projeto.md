@@ -76,9 +76,9 @@ Existem também 2 lojas (S0007 e S0059) que começaram a vender em semanas difer
 
 Temos ainda o caso especial da loja S0136 que percebemos que não está aberta todo o ano e, pela análise efetuada a loja terá fechado em setembro como habitualmente fez nos períodos homólogos de 2017 e 2018, pelo que a previsão para outubro de 2019 é que esteja fechada e por isso não haja vendas.
 
-![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas%20anormais.png)
+![Logo do GitHub](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/Lojas%20S0136.png)
 
-Depois deste tratamento dos dados agregamos tudo num data set e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
+
 
 ### Criação das variaveis exógenas
 
@@ -89,6 +89,8 @@ Foram criadas várias variaveis exógenas para treino no modelo em sarimax, as v
 - promo_discount (16, 20, 35, 40, 50) neste caso somou-se o número de produtos que teve esta promoções por dia e por fim semanalmente.
 - Outono, verão e Primavera para estas variaveis foram criadas coluna dummy para cada, em que era colocado o número um caso a semana estivesse naquela estação do ano e 0 se não estivesse.
 - Feriados neste caso foi criada uma só coluna em que 1 representava uma semana com feriado e 0 se não tivesse. Nota: Se o feriado ficasse no ínicio da semana colocava 1 também na semana anterior e se ficasse no final da semnana colocava 1 na semana seguinte.
+
+Depois deste tratamento dos dados agregamos tudo num data set e “csv” final [df_final](https://github.com/Gmarchi-silva/ISLA/blob/main/Data%20Preparation/df_final.csv).
 
 ## 4.	Modeling
 Para a criação de modelos iniciamos com a média e média móvel (1trimestre – 13semanas) que testamos para algumas lojas e analisamos os resultados com base no R2, MAE e RMSE, no entanto tendo em conta os resultados e considerando que iremos avançar para um modelo ARIMA que já nos dará indicação de modelos Auto-Regressivos e de Média Móvel, assim como o tempo disponível, resolvemos começar com a criação de modelo ARIMA com a parametrização automática dos parâmetros (auto-arima) e avaliar os resultados.
