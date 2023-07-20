@@ -126,7 +126,8 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 - Outono, verão e Primavera
 - Feriados
 
-Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters).xlsx). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
+Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters).xlsx). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo. 
+A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
 
 Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que considerámos significativas as variaveis que tivessem um p-value<0,10. Olhando para a tabela abaixo e analisando os dados obtidos percebemos que:
 
@@ -142,18 +143,28 @@ Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que conside
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
 
 
-Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
-A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
-Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
 
+### Sarimax Cluster e lojas individuais
 
+Depois de analisarmos os dados do Sarimax percebemos que o cluster que queríamos utilizar era o ST03_03 que é composto por 8 lojas ()
+Aanálise di Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo para testar num cluster específico e avaliar e comparar com os resultados do modelo das lojas individuais. Corremos o cluster e as lojas individualmente com as seguintes variáveis exógenas:
 
-Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
+- Stock_inicial 
+- Promo bin 1 (very low, low, moderate, high, very high)
+- Outono, verão e Primavera
+- Feriados
 
+Os resultados abaixo encontra-se aqui. Através destes gráficos podemos ver que a previsão do cluster e das lojas são muito parecidas. 
 
-Esta análise permitiu perceber que algumas variáveis não são significativas e por isso retiramos do modelo para testar num cluster específico e avaliar e comparar com os resultados do modelo das lojas individuais…
+![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3d17a97e-d0e8-4d63-a36f-57f9b7cf55d4)
 
+Nos gráficos abaixo é possivel que ver que o MAE, MSE e o RMSE do cluster e das lojas individuais andam próximos, no entanto parece-nos que o cluster tem um erro relativamente menor em comparação com as lojas individuais. No caso do MAPE varia de loja para loja sendo o modelo do cluster mais preciso numas lojas e os modelos individuais mais precisos noutras.
 
+![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/88128b1c-2041-4ba4-bb10-7802efe9efa5)
+
+Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os modelos individuais das lojas. Isto indica-nos que o modelo do cluster se ajusta melhor aos dados.
+
+![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/eacac510-560d-4fa1-bbca-9570a7e967a1)
 
 ## 5.	Conclusion
 
