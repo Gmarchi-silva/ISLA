@@ -101,7 +101,10 @@ Para a criação de modelos iniciamos com a [média](https://github.com/Gmarchi-
 De seguida começamos a efetuar modelo [ARIMA Manual](https://github.com/Gmarchi-silva/ISLA/blob/main/Modelos%20Gerais%20Base/3_Modelo%20arima%20manual.R) com cálculo e definição manual de parâmetros, no entanto, esta opção implica efetuar manualmente por loja e mais uma vez tendo o tempo limitado optamos por seguir com ARIMA utilizando o auto-arima para definição dos parâmetros automáticamente. 
 
 ### Arima (sales e revenue)
-Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20sales) e [“revenue”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20revenues) de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto, no entanto, pela análise efectuada  optamos por nos centrarmos na “revenue”.
+Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20sales) e [“revenue”](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Arima%20revenues) de forma a comparar qual delas poderia ser a melhor a utilizar para o fim proposto. Os resultados do arima sales relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20sales/resultados_arima_sales.csv).
+Os resultados do arima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20sales/resultados_arima_revenue.csv).
+
+, no entanto, pela análise efectuada  optamos por nos centrarmos na “revenue”.
 
 
 ### Sarima
