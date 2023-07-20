@@ -111,7 +111,7 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 , no entanto, pela análise efectuada  optamos por nos centrarmos na “revenue”.
 
 
-### Sarima (revenue)
+### Sarima ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/Sarima_revenues.py))
  Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente.
  -Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
  
