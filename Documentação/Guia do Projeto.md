@@ -42,7 +42,8 @@ Para apoiar nesta análise recorremos à biblioteca “pandas_profiling” do Py
 •	“bin_2” com 3 características mas 99,9% das vendas sem registo
 •	“discount_2” com 6 valores diferentes de desconto atribuídos às vendas com registo de “promo_type_2”/ “promo_bin_2” (ou seja, em 99,9% dos registos não tem valor)
 •	“discount_type_2” com uma classificação em 4 tipos dos descontos/ “promo_2” anteriormente indicados (mantém os 99,9% de registos sem valor)
-- Correlações:
+
+  Correlações:
 - As ‘sales’ têm uma forte correlação positiva com a ‘revenue’, o que já seria de esperar
 - A correlação de ‘sales’ com ‘stock’ é positiva mas pouco significativa
 - O mesmo acontece com ‘sales’ e ‘price’ mas neste caso com correlação negativa
