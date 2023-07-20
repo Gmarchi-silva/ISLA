@@ -126,18 +126,10 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 - Outono, verão e Primavera
 - Feriados
 
-Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se aqui 
+Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters).xlsx). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
 
-![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
+Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que considerámos significativas as variaveis que tivessem um p-value<0,10. Olhando para a tabela abaixo e analisando os dados obtidos percebemos que:
 
-Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
-Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
-A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
-Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
-
-
-
-Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
 - O stock inicial é a variável que impacta em mais lojas , de todos os tipos, tamanhos e cidades, mas com coeficientes reduzidos
 - A Primavera e o Verão são as que causam um efeito de maior amplitude na revenue, e essencialmente na cidade de Istanbul, sendo o efeito negativo o de maior amplitude.
 - Não têm impacto relevante na única loja do tipo ST02
@@ -145,6 +137,19 @@ Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
 - A maioria das lojas onde tem efeito são de tamanho pequeno e médio/baixo, no entanto, o maior impacto negativo é nas lojas de tamanho maior
 
 - As variáveis Probin1_low, Probin1_very_low, Outono, Probin1_moderate são as que causam apenas impacto positivo nas lojas também de vários tipos, tamanhos e cidades, em que foram consideradas significativas
+
+
+![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
+
+
+Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
+A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
+Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
+
+
+
+Com o modelo SARIMAX verificamos que, considerando um p-value<0,10:
+
 
 Esta análise permitiu perceber que algumas variáveis não são significativas e por isso retiramos do modelo para testar num cluster específico e avaliar e comparar com os resultados do modelo das lojas individuais…
 
