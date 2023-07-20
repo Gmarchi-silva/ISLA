@@ -112,7 +112,7 @@ Nos restantes modelo optamos por nos centrarmos na “revenue”.
 
 
 ### Sarima ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/Sarima_revenues.py))
- Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente.
+ Depois fizemos um sarima da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarima%20revenue) para todas as lojas para avaliar se a sazonalidade é relevante para todas as lojas individualmente. Neste caso de referir que fizemos um ciclo em que as lojas com menos de 79 semanas em vez de um sarima faziam um arima. Foi necessário fazer isto pois com a sazonalidade de 52 semanas o código dava erro para valores baixos. As lojas que ficaram de fora do sarima foram S0076, S0071, S0092, S0109 e S0007.
  -Os resultados do Sarima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/resultados_Sarima_revenues.csv)
  
 
