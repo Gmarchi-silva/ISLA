@@ -168,7 +168,7 @@ Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os m
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/eacac510-560d-4fa1-bbca-9570a7e967a1)
 
 
-- Os resultados do Sarimax_cluster relativo a coeficientes, aic, bic,... encontram-se aqui
+- Os resultados do Sarimax_cluster relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20cluster/resultados_sarimax_cluster.csv)
 
 - Os resultados do Sarimax_lojas_ST03_03_indv relativo a coeficientes, aic, bic,... encontram-se aqui
 
