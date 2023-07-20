@@ -127,7 +127,7 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 - Outono, verão e Primavera
 - Feriados
 
-Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters).xlsx). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo. 
+Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarimax%20revenue/resultados_Sarimax_com_clusters). Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMAX para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo. 
 A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
 
 Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que considerámos significativas as variaveis que tivessem um p-value<0,10. Olhando para a tabela abaixo e analisando os dados obtidos percebemos que:
@@ -166,6 +166,11 @@ Nos gráficos abaixo é possivel que ver que o MAE, MSE e o RMSE do cluster e da
 Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os modelos individuais das lojas. Isto indica-nos que o modelo do cluster se ajusta melhor aos dados.
 
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/eacac510-560d-4fa1-bbca-9570a7e967a1)
+
+
+- Os resultados do Sarimax_cluster relativo a coeficientes, aic, bic,... encontram-se aqui
+
+- Os resultados do Sarimax_lojas_ST03_03_indv relativo a coeficientes, aic, bic,... encontram-se aqui
 
 ## 5.	Conclusion
 
