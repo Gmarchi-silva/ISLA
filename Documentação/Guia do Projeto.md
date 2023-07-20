@@ -148,7 +148,7 @@ Os mesmos dados permitiram-nos avaliar as variáveis exogenas, sendo que conside
 ### Sarimax Cluster e lojas individuais
 
 Depois de analisarmos os dados do Sarimax percebemos que o cluster que queríamos utilizar era o ST03_03 que é composto por 8 lojas ()
-A análise do Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo. Testámos o sarimax num cluster específico e comparamos com os resultados do [modelo das lojas individuais](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax_lojas_STO3_03_indv). Corremos o cluster e as lojas individualmente com as seguintes variáveis exógenas:
+A análise do Sarimax individual permitiu-nos também perceber que algumas variáveis não são significativas e por isso retiramos do modelo. Testámos o sarimax num [cluster](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20cluster) específico e comparamos com os resultados do [modelo das lojas individuais](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax_lojas_STO3_03_indv). Corremos o cluster e as lojas individualmente com as seguintes variáveis exógenas:
 
 - Stock_inicial 
 - Promo bin 1 (very low, low, moderate, high, very high)
