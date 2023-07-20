@@ -108,7 +108,7 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 
 -Os resultados do arima revenue relativo a coeficientes, aic, bic,... encontram-se [aqui](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Arima%20revenues/resultados_arima_revenue.csv).
 
-, no entanto, pela análise efectuada  optamos por nos centrarmos na “revenue”.
+Nos restantes modelo optamos por nos centrarmos na “revenue”.
 
 
 ### Sarima ([revenue](https://github.com/Gmarchi-silva/ISLA/blob/main/modeling/Sarima%20revenue/Sarima_revenues.py))
@@ -174,8 +174,8 @@ Em relação ao AIC podemos ver que o modelo do cluster é muito melhor que os m
 
 ## 5.	Conclusion
 
-Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a revenue.A empresa apartir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a revenue.
-O modelo Sarimax para o cluster de 8 lojas permite fazer previsõesmais acertadas em relação aos modelos individuais de cada loja. 
+Através das variáveis exógenas foi possível retirar informações que permitem saber como estas influenciam a revenue. A empresa a partir desta informação pode tentar manipular algumas das variáveis de forma a tentar aumentar a revenue.
+O modelo Sarimax para o cluster de 8 lojas permite fazer previsões mais acertadas em relação aos modelos individuais de cada loja. 
 Num futuro projeto para este tipo de dados seria interessante utilizar um modelo de dados em painel
 
 
