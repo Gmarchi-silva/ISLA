@@ -117,9 +117,16 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 
  ### Sarimax
  
- Corremos o modelo Sarimax da "revenue" com as seguintes variáveis exógenas:
- 
- Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
+ Corremos o modelo Sarimax da ["revenue"](https://github.com/Gmarchi-silva/ISLA/tree/main/modeling/Sarimax%20revenue) com as seguintes variáveis exógenas:
+
+- Stock_inicial 
+- Promo bin 1 (very low, low, moderate, high, very high)
+- Promo bin 2 (very low, high, very high)
+- promo_discount (16, 20, 35, 40, 50)
+- Outono, verão e Primavera
+- Feriados
+
+Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
 Para além de tornar mais eficiente correr o modelo pretendemos avaliar se o modelo do cluster poderá ser mais preciso do que o de cada loja individual.
 A análise gráfica dos erros de cada loja parece revelar uma tendência para a sub-estimação da revenue, ressalvando que em praticamente todas as lojas existem semanas sub e sobre estimadas e ainda que na semana 138 existe um pico que foge bastante à tendência em praticamente todas as lojas, sendo relevante na análise final das previsões e tomada de decisão quanto ao armazenamento a ser efectuado.
 Com estes dados pensamos então em acrescentar variáveis exógenas que pudessem ajudar a melhorar a precisão do modelo e criamos/utilizamos as seguintes variáveis:
