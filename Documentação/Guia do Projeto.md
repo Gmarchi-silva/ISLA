@@ -8,7 +8,7 @@ Neste sentido, e seguindo a metodologia CRISP-DM, pretendemos criar modelo (s) d
 
 ## 2.	Data Understanding
 
-Os dados disponibilizados são em formato “csv” e correspondem a três tabelas (“sales”, ['product'](https://github.com/Gmarchi-silva/ISLA/blob/main/Pandas%20Profiling/1_p_profiling_cities.html) e ['cities'](https://github.com/Gmarchi-silva/ISLA/blob/main/Pandas%20Profiling/1_p_profiling_cities.html)).
+Os dados disponibilizados são em formato “csv” e correspondem a três tabelas (['sales'](https://github.com/Gmarchi-silva/ISLA/blob/7d0d58946e3b3818b243fa93c519d50bd09526ae/Pandas%20Profiling/1_p_profiling_sales.html), ['product'](https://github.com/Gmarchi-silva/ISLA/blob/7d0d58946e3b3818b243fa93c519d50bd09526ae/Pandas%20Profiling/1_p_profiling_product.html) e ['cities'](https://github.com/Gmarchi-silva/ISLA/blob/main/Pandas%20Profiling/1_p_profiling_cities.html)).
 Para a análise de dados utilizamos as ferramentas Excel, Python (Spyder e Google Colab) e Rstudio para extrair o melhor entendimento possível da informação presente nos dados.
 Primeiro verificamos as variáveis presentes em cada uma das tabelas e o possível relacionamento existente entre elas. Neste caso, as tabelas “cities” e “product” estão relacionadas diretamente com a tabela “sales” pelas variáveis “store_id” e “product_id” respectivamente, podendo estas colunas serem consideradas chaves primárias visto que apenas contêm dados únicos (sendo chaves estrangeiras na tabela “sales”).
 
