@@ -126,6 +126,8 @@ Corremos os modelos utilizando as variáveis [“sales”](https://github.com/Gm
 - Outono, verão e Primavera
 - Feriados
 
+Os resultados do Sarimax revenue relativo a coeficientes, aic, bic,... encontram-se aqui 
+
 ![image](https://github.com/Gmarchi-silva/ISLA/assets/125706061/3613aee0-06ca-4c49-8b6d-798791805f1e)
 
 Com estes dados decidimos criar clusters com base na store_type e nos modelos gerados pelo modelo SARIMA para cada loja agrupando por store_type e de seguida por modelo gerado e identificamos 36 clusters diferentes havendo a possibilidade de agrupar lojas do mesmo tipo e com o mesmo modelo.
