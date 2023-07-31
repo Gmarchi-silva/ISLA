@@ -78,7 +78,7 @@ df_results_63 = pd.DataFrame()
 df_forecast = pd.DataFrame()
 
 for store_id in valores_unicos:  
-    store_id='S0141'
+    #store_id='S0141'
     
     # Filtrar os dados para a loja específica
     store_data = grouped_df[grouped_df['store_id'] == store_id]
